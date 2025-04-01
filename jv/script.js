@@ -1,5 +1,4 @@
 //  informazioni
-// alert("messaggio per me");
 const userAge = parseInt(prompt("quanti anni hai ?"));
 const userkm = parseInt(prompt("quanti km devi percorrere ?"));
 const priceporkm = userkm * 0.21;
@@ -18,14 +17,23 @@ console.log("tarifOver", tarifOver);
 
 if (!isNaN(userAge) && !isNaN(userkm)) {
   let outputText;
+
+  if (userAge < 0) {
+    alert("Valore anni non valido");
+  }
+  if (userkm < 0) {
+    alert("Valore km non valido");
+  }
   // logica
 
   if (userAge < 18) {
-    outputText = tarifYoung.toFixed(2) + "€";
+    outputText =
+      "la tua tariffa è scontata del 20%" + " " + tarifYoung.toFixed(2) + "€";
   } else if (userAge > 65) {
-    outputText = tarifOver.toFixed(2) + "€";
+    outputText =
+      "la tua tariffa è scontata del 40%" + " " + tarifOver.toFixed(2) + "€";
   } else {
-    outputText = priceporkm.toFixed(2) + "€";
+    outputText = "la tua tariffa è" + " " + priceporkm.toFixed(2) + "€";
   }
 
   alert(outputText);
@@ -33,5 +41,5 @@ if (!isNaN(userAge) && !isNaN(userkm)) {
 
 // altrimenti errore
 else {
-  alert("imput non validi");
+  alert("inserire valori validi");
 }
