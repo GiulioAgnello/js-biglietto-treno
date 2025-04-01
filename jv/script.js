@@ -13,31 +13,39 @@ console.log("tarifOver", tarifOver);
 
 // controllo
 
+let outputText;
+
 if (!isNaN(userAge) && !isNaN(userkm)) {
-  let outputText;
-
+  // Controllo sei i valori inseriti sono numeri
   if (userAge < 0) {
+    // Controllo la correttezza dell'età
     alert("Valore anni non valido");
-  }
-  if (userkm < 0) {
-    alert("Valore km non valido");
-  }
-  // logica
-
-  if (userAge < 18) {
-    outputText =
-      "la tua tariffa è scontata del 20%" + " " + tarifYoung.toFixed(2) + "€";
-  } else if (userAge > 65) {
-    outputText =
-      "la tua tariffa è scontata del 40%" + " " + tarifOver.toFixed(2) + "€";
   } else {
-    outputText = "la tua tariffa è" + " " + priceporkm.toFixed(2) + "€";
+    // età corretta
+    if (userkm < 0) {
+      // Controllo la correttezza dei km (almeno 1)
+      alert("Valore km non valido");
+    } else {
+      // Ho età e km corretti
+      // logica
+      if (userAge < 18) {
+        outputText =
+          "la tua tariffa è scontata del 20%" +
+          "  " +
+          tarifYoung.toFixed(2) +
+          "€";
+      } else if (userAge > 65) {
+        outputText =
+          "la tua tariffa è scontata del 40%" +
+          "  " +
+          tarifOver.toFixed(2) +
+          "€";
+      } else {
+        outputText = "la tua tariffa è" + " " + priceporkm.toFixed(2) + "€";
+      }
+      alert(outputText);
+    }
   }
-
-  alert(outputText);
-}
-
-// altrimenti errore
-else {
+} else {
   alert("inserire valori validi");
 }
