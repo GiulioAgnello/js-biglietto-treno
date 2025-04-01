@@ -10,14 +10,28 @@ const tarifOver = priceporkm - discount40;
 
 console.log("userAge", userAge);
 console.log("userkm", userkm);
-console.log("pricepork", priceporkm);
-console.log("tarifYoungm", tarifYoung);
+console.log("priceporkm", priceporkm);
+console.log("tarifYoung", tarifYoung);
 console.log("tarifOver", tarifOver);
 
 // controllo
 
-if (isNaN(userAge) && isNaN(userkm)) {
+if (!isNaN(userAge) && !isNaN(userkm)) {
+  let outputText;
   // logica
-} else {
+
+  if (userAge < 18) {
+    outputText = tarifYoung + "€";
+  } else if (userAge > 65) {
+    outputText = tarifOver + "€";
+  } else {
+    outputText = priceporkm + "€";
+  }
+
+  alert(outputText);
+}
+
+// altrimenti errore
+else {
   alert("imput non validi");
 }
