@@ -21,11 +21,11 @@ if (!isNaN(userAge) && !isNaN(userkm)) {
   // logica
 
   if (userAge < 18) {
-    outputText = tarifYoung + "€";
+    outputText = tarifYoung.toFixed(2) + "€";
   } else if (userAge > 65) {
-    outputText = tarifOver + "€";
+    outputText = tarifOver.toFixed(2) + "€";
   } else {
-    outputText = priceporkm + "€";
+    outputText = priceporkm.toFixed(2) + "€";
   }
 
   alert(outputText);
